@@ -2,7 +2,7 @@
 Object Oriented Programming Assignment
 
 ##Operation.py
-[operation.py](https://github.com/user-attachments/files/23377600/operation.py)
+[operations.py](https://github.com/user-attachments/files/23418960/operations.py)
 # Data structures
 books = {}
 members = []
@@ -104,52 +104,50 @@ def delete_member(member_id):
             return "Member deleted successfully."
     return "Member not found."
 
-
-
-    ##Demo.py
-    [demo.py](https://github.com/user-attachments/files/23377615/demo.py)
+##Demo.py
+[demo.py](https://github.com/user-attachments/files/23418986/demo.py)
 from operations import *
 
 # Demonstrate system usage
-print(add_book("978-001", "Python Basics", "John Doe", "Fiction", 5))
-print(add_book("978-002", "Data Science 101", "Jane Smith", "Non-Fiction", 3))
+print(add_book(isbn="978-001", title="Python Basics", author="John Doe", genre="Fiction", total_copies=5))
+print(add_book(isbn="978-002", title="Data Science 101", author="Jane Smith", genre="Non-Fiction", total_copies=3))
 
-print(add_member("M001", "Alice Brown", "alice@example.com"))
-print(add_member("M002", "Bob White", "bob@example.com"))
+print(add_member(member_id="M001", name="Alice Brown", email="alice@egmaile.com"))
+print(add_member(member_id="M002", name="Bob White", email="bob@gmail.com"))
 
 print(search_books("Python"))
 
-print(borrow_book("M001", "978-001"))
-print(borrow_book("M001", "978-002"))
-print(return_book("M001", "978-001"))
-
-print(update_book("978-002", title="Data Science Advanced"))
-print(delete_book("978-001"))
-print(delete_member("M002"))
+print(borrow_book(member_id="M001", isbn="978-001"))
+print(borrow_book(member_id="M001", isbn="978-002"))
+print(return_book(member_id="M001", isbn="978-001"))
 
 
 ##Test.py
-[test.py](https://github.com/user-attachments/files/23377657/test.py)
+[test.py](https://github.com/user-attachments/files/23419007/test.py)
 from operations import *
 
 # Test adding book
-assert add_book("978-003", "AI Revolution", "Tom Smart", "Sci-Fi", 2) == "Book added successfully."
-assert add_book("978-003", "AI Revolution", "Tom Smart", "Sci-Fi", 2) == "Book already exists."
+assert add_book(isbn="978-003", title="AI Revolution", author="Tom Smart", genre="Sci-Fi", total_copies=2) == "Book added successfully."
+assert add_book(isbn="978-003", title="AI Revolution", author="Tom Smart", genre="Sci-Fi", total_copies=2) == "Book already exists."
 
 # Test adding member
-assert add_member("M003", "Charlie", "charlie@example.com") == "Member added successfully."
-assert add_member("M003", "Charlie", "charlie@example.com") == "Member already exists."
+assert add_member(member_id="M003", name="Charlie", email="charlie@gmail.com") == "Member added successfully."
+assert add_member(member_id="M003", name="Charlie", email="charlie@gmail.com") == "Member already exists."
 
 # Test borrowing
-assert borrow_book("M003", "978-003") == "Book borrowed successfully."
+assert borrow_book(member_id="M003", isbn="978-003") == "Book borrowed successfully."
 
 # Test returning
-assert return_book("M003", "978-003") == "Book returned successfully."
+assert return_book(member_id="M003", isbn="978-003") == "Book returned successfully."
 
 # Test searching
 assert len(search_books("AI")) == 1
 
 print("All tests passed successfully!")
+
+print(update_book(isbn="978-002", title="Data Science Advanced"))
+print(delete_book("978-001"))
+print(delete_member("M002"))
 
 
 ##UML Diagram
